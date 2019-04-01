@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Route} from 'react-router-dom';
+import Nav from './component/nav';
+import Login from './page/login/index';
+import Welcome from './page/welcome';
+import Goods from './page/goods';
 import './App.css';
+
+
+
+const LIST = [{
+  text: 'welcome',
+  url: '/welcome'
+}, {
+  text: 'goods',
+  url: '/goods'
+}];
+
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      
+        <div className="nav_bar">
+          <Nav list={LIST} />
+        </div>
+        <div className="conent">
+          <Route path="/welcome" component={Welcome} />
+          <Route path="/goods" component={Goods} />
+        </div>
       </div>
     );
   }
