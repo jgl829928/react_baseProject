@@ -3,7 +3,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: new Date()
+        
         }
     }
     
@@ -13,10 +13,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Hello, world!</h1>
-                <div>
-                    {this.state.date}
-                </div>
+                <h1>404</h1>
             </div>
         )
     }

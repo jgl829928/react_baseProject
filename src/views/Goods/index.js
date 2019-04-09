@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../action/goods';
+import * as actions from '../../action/goods';
 import { Button } from 'antd';
 
 const GOODS = [{

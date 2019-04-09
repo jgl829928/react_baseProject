@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Page from './page';
+import * as apis from './axios';
 import { Provider } from "react-redux";
 import { store } from './store';
 import { BrowserRouter,Route } from 'react-router-dom';
@@ -11,7 +13,7 @@ import './index.css';
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter >
-            <Route path="/" component={App}></Route>
+            <Page></Page>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root'));
