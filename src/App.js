@@ -4,16 +4,12 @@ import SiderMenu from './component/siderMenu';
 import './App.css';
 
 import {
-  Layout, Menu, Breadcrumb, Icon,
+  Layout, Menu, Breadcrumb,
 } from 'antd';
 
-const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 class App extends Component {
-  componentWillMount() {
-    console.log(Routes)
-  }
   render() {
     return (
       <Layout>
@@ -32,7 +28,7 @@ class App extends Component {
         </Header>
         <Layout>
           <Sider width={200} style={{ background: '#fff' }}>
-            <SiderMenu/>
+            <SiderMenu />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>

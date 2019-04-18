@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import Page from './page';
-import * as apis from './axios';
 import { Provider } from "react-redux";
 import { store } from './store';
-import { BrowserRouter,Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import "antd/dist/antd.css";
 import './index.css';
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter >
+        <BrowserRouter>
             <Page></Page>
         </BrowserRouter>
     </Provider>,
@@ -22,3 +20,12 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+
+
+
+
+
+
+

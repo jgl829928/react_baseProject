@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import NotFound from './page/NotFound';
-import Login from './page/Login';
+import NotFound from './views/NotFound';
+import Login from './views/Login';
 import App from './App';
 
 export default () => (
@@ -15,3 +15,17 @@ export default () => (
         </Switch>
     </Router>
 )
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import routes from '../../routes/config';
 import './index.css'
 import {
-    Layout, Menu, Breadcrumb, Icon,
+    Menu, Icon,
 } from 'antd';
 
 const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
 
 const SiderMenu = () => (
     <Menu mode="inline"
