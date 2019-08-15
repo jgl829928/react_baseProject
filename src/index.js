@@ -7,6 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import "antd/dist/antd.css";
 import './index.css';
+import './style/reset.css';
+import "./axios/http";
+import qs from 'qs'
+import { Component } from "react";
+
+Component.prototype.$qs=qs
 
 ReactDOM.render(
     <Provider store={store}>

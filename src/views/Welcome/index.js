@@ -4,17 +4,14 @@
 import React, { PureComponent } from 'react';
 import { Menu, Icon } from 'antd';
 // import { connect } from 'dva';
-import { Tree, Input } from 'antd';
+import { Tree } from 'antd';
 // import { responseCode } from '../../../utils/config';
-import { array } from 'prop-types';
 
 
 const { SubMenu } = Menu;
 const { TreeNode } = Tree;
-const Search = Input.Search;
 
-var rootSubmenuKeys = new Array;
-var openArrayKeys = new Array;
+var rootSubmenuKeys = [];
 // @connect(({ apiCategory }) => ({
 //   apiCategory
 // }))
@@ -32,8 +29,6 @@ export default class AppTree extends PureComponent {
   menuSelect(event){
       event.preventDefault();
   }
-
-
 //   componentDidMount() {
 //     const { apiCategory: { appCG } } = this.props;
 //     const values = {
@@ -94,7 +89,6 @@ export default class AppTree extends PureComponent {
           <TreeNode selectable={true} key={item.key} title={item.value}>{item.value} </TreeNode>
         );
       }
-      return <TreeNode {...item} />;
     });
   }
   render() {

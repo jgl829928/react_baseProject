@@ -1,36 +1,46 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import routes from '../../routes/config';
 import './index.css'
-import {
-    Menu, Icon,
-} from 'antd';
+import { Menu, Icon, } from 'antd';
 
 const { SubMenu } = Menu;
-
-const SiderMenu = () => (
-    <Menu mode="inline"
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        style={{ height: '100%', borderRight: 0 }}>
-        {
-            routes.menus.map((firstMenu, firstIdx) => (
-            <SubMenu key={firstMenu.key} title={<span><Icon type={firstMenu.icon} />{firstMenu.title}</span>}>
-                {
-                    firstMenu.subs.map((secMenu, secIdx) => (
-                        <Menu.Item key={secMenu.key}>
-                            <Link to={secMenu.key}>
-                                <span className="nav-text">{secMenu.title}</span>
-                            </Link>
-                        </Menu.Item>
-                    )
-                    )
+class SiderMenu extends Component {
+    renderMunuNodes(data) {
+        return data.map((item, index) => {
+            {
+                if (item.children && item.children.length > 0) {
+                    return (<SubMenu key={item.id} title={<span>{item.resName}</span>}>
+                        {
+                            this.renderMunuNodes(item.children)
+                        }
+                    </SubMenu>)
+                } else {
+                    return (<Menu.Item key={item.id}>
+                        <Link to={item.path}>
+                            <span className="nav-text">{item.resName}</span>
+                        </Link>
+                    </Menu.Item>
+                        )
                 }
-            </SubMenu>)
-            )
-        }
-    </Menu>
-);
+            }
+        })
+    }
+    render() {
+        return <Menu mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%', borderRight: 0 }}>
+            {
+                this.renderMunuNodes(this.props.menuList)
+            }
+        </Menu>
+    }
+}
+const mapSateToProps = (state, ownprops) => ({
+    menuList: state.common.menuList,
+})
 
-export default SiderMenu
+export default connect(mapSateToProps)(SiderMenu)
 

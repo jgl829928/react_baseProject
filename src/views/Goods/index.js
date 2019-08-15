@@ -48,14 +48,14 @@ class Goods extends Component {
                     ))
                 }
             </ul>
-
         );
     }
 }
 
 const mapSateToProps = (state, ownprops) => ({
     isFetching: state.goods.isFetching,
-    goods: state.goods.data
+    goods: state.goods.data,
+    token: state.common.token
 })
 
 export default connect(mapSateToProps)(Goods);

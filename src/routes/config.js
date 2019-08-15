@@ -15,6 +15,12 @@ export default {
                 { key: '/app/goods/echart', title: '图表', component: 'goodsEchart'},
             ],
         },
+        {
+            key: '/app/iframe', title: 'goods', icon: 'rocket',
+            subs: [
+                { key: '/app/iframe', title: '表格', component: 'iframes'},
+            ],
+        },
     ],
     others: [] // 非菜单相关路由
 }

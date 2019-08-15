@@ -13,5 +13,35 @@ export const goods = handleActions({
     })
 }, {
     isFetching: false,
-    data: []
+    data: [] 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
