@@ -2,20 +2,26 @@
  * Created by 叶子 on 2017/8/13.
  */
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import DocumentTitle from 'react-document-title';
 import AllComponents from '../views';
 import routesConfig from './config';
 import queryString from 'query-string';
-export default class CRouter extends Component {
+
+class CRouter extends Component {
     render() {
+        let token = this.props.token;
+        if(!token){
+            this.props.history.push({ pathname: 'login'})
+        }
         return (
             <Switch>
                 {
                     Object.keys(routesConfig).map(key =>
                         routesConfig[key].map(r => {
                             const route = r => {
-                                const Component = AllComponents[r.component]; 
+                                const Component = AllComponents[r.component];
                                 return (
                                     <Route
                                         key={r.route || r.key}
@@ -38,7 +44,9 @@ export default class CRouter extends Component {
                                                     <Component {...merge} />
                                                 </DocumentTitle>
                                             )
-                                            return wrappedComponent
+                                            return token ? wrappedComponent : <Redirect to={{
+                                                pathname: '/login',
+                                            }} />
                                         }}
                                     />
                                 )
@@ -51,3 +59,9 @@ export default class CRouter extends Component {
         )
     }
 }
+
+const mapSateToProps = (state, ownprops) => ({
+    token: state.common.token,
+})
+
+export default connect(mapSateToProps)(CRouter)

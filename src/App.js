@@ -49,7 +49,7 @@ class App extends Component {
           </Sider>
           <Layout style={{ padding: '20px 24px 24px' }}>
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280, }}>
-              <Routes />
+              <Routes history ={this.props.history}/>
             </Content>
           </Layout>
         </Layout>
